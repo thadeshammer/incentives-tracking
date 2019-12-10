@@ -1,5 +1,5 @@
 # incentives-tracking
-Toy skeletal example for tracking incentives or achievements for health tracking apps; hyper simplistic.
+Toy skeletal example for tracking incentives or achievements for health tracking apps; hyper simplistic, sketched out in roughly 2.5 hours.
 
 Intended Usage:
 	Call the updateEvent() endpoint/api hook when an event has taken place so that, if it's an incentivized event, it will be correctly tracked. This needs to BLOCK checkEvent().
