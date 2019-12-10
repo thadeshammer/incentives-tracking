@@ -17,7 +17,7 @@ public class UserDataLogged implements IncentivizedEvent {
     private UserDataLogged() {}
 
     @Override
-    public synchronized boolean checkIncentivizedEvent(String userUID) {
+    public synchronized boolean checkEvent(String userUID) {
         return validate(userUID);
     }
 

@@ -32,7 +32,7 @@ public class BirthReported implements IncentivizedEvent {
     private BirthReported() {}
 
     @Override
-    public boolean checkIncentivizedEvent(String userUID) {
+    public boolean checkEvent(String userUID) {
 
         /*
              TODO query DB to verify user is recognized and that a birth was recently reported

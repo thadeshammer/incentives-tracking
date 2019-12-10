@@ -17,16 +17,16 @@ public interface IncentivizedEvent {
      * as each one may require its own non-trivial logic behind validating that its been "achieved" by
      * a given user and thus that a reward has been earned.
      *
-     * An incentivized event implementing this MUST implement checkIncentivizedEvent which is to be
+     * An incentivized event implementing this MUST implement checkEvent which is to be
      * called each time a user-associated event occurs.
-     *  - checkIncentivizedEvent must:     *
+     *  - checkEvent must:     *
      *      perform analysis as to whether the user now qualifies for any tracked rewards,
      *
      *
      * @param userUID
      * @return
      */
-    boolean checkIncentivizedEvent(String userUID);
+    boolean checkEvent(String userUID);
 
     /**
      * Record the event in terms of whether this furthers or completes progress on this achievement.
@@ -34,6 +34,11 @@ public interface IncentivizedEvent {
      * entry or having an existing entry updated.
      *
      * Example 1: Did the user report a birth today
+     *
+     * NOTE. This is obviously going to need to BLOCK checkEvent for a given user. This informs how
+     * we track this in the DB (which is why you may notice the implication in how I talk about it
+     * elsewhere that we're tracking for this Per User, e.g. a Mongo document for a user tracking
+     * their progress on all of their incentivized events.
      *
      * @param userUID
      */

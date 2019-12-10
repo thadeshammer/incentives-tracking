@@ -48,10 +48,10 @@ public class IncentiveTracker {
 
         switch (eventType) {
             case LOG_DATA:
-                eventResultsInAchievement = UserDataLogged.getInstance().checkIncentivizedEvent(userUID);
+                eventResultsInAchievement = UserDataLogged.getInstance().checkEvent(userUID);
                 break;
             case REPORT_BIRTH:
-                eventResultsInAchievement = BirthReported.getInstance().checkIncentivizedEvent(userUID);
+                eventResultsInAchievement = BirthReported.getInstance().checkEvent(userUID);
                 break;
             default:
                 // nothing to do here but that might be something we want to report too.
