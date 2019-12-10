@@ -27,7 +27,7 @@ public class IncentiveTracker {
         data being logged with some amount of regularity.
 
         The initial ask here is for a reward to proc after the fifth consecutive day that
-        data is logged (something like an achievement woudl be logged perhaps, then this
+        data is logged (something like an achievement would be logged perhaps, then this
         one is "achieved" for the given user and not "achievable" again) but perhaps we'd
         want something more complicated at some point: for instance, an on-going incentive
         that pops up some sort of congratulations message if the user repeatedly reports
@@ -42,6 +42,10 @@ public class IncentiveTracker {
             Rather than construct these simple helper objects on the stack we do so lazily via
             a singleton pattern; this assumes either we need no scaling OR that we'll scale with
             multiple services, and maybe both of those assumptions are crazy.
+
+            We could also iterate over collections of events if we needed/wanted to batch process,
+            using the common interface to do so. For readability and speed here, I've broken it
+            out over a switch statement.
          */
 
         boolean eventResultsInAchievement = false;
